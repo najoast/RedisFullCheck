@@ -1,12 +1,12 @@
 package client
 
 import (
-	"strconv"
 	"fmt"
+	"strconv"
 
 	"full_check/common"
 
-	"github.com/garyburd/redigo/redis"
+	"github.com/gomodule/redigo/redis"
 )
 
 /*
@@ -49,7 +49,6 @@ func (p *RedisClient) FetchBaseInfo(isCluster bool) (map[int32]int64, []string, 
 			}
 		}
 	}
-
 
 	physicalDBList := make([]string, 0)
 	// get db list

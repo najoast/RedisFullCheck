@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strconv"
 
-	redigo "github.com/garyburd/redigo/redis"
+	redigo "github.com/gomodule/redigo/redis"
 )
 
 type ClusterNodeInfo struct {
@@ -101,8 +101,8 @@ func ClusterNodeChoose(input []*ClusterNodeInfo, role string) []*ClusterNodeInfo
 	ret := make([]*ClusterNodeInfo, 0, len(input))
 	for _, ele := range input {
 		if ele.Flags == TypeMaster && role == TypeMaster ||
-				ele.Flags == TypeSlave && role == TypeSlave ||
-				role == TypeAll {
+			ele.Flags == TypeSlave && role == TypeSlave ||
+			role == TypeAll {
 			ret = append(ret, ele)
 		}
 	}
